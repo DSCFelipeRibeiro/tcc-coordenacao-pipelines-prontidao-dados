@@ -1,0 +1,66 @@
+version: "1.0"
+dataset:
+  name: "informe_diario_fundos_cvm"
+  domain: "mercado_capitais"
+
+landing_zone:
+  file_pattern: "inf_diario_fi_*.csv"
+  delimiter: ";"
+  encoding: "utf-8"
+  has_header: true
+
+schema_validation:
+  strict_columns_order: true
+  columns:
+    - name: "TP_FUNDO_CLASSE"
+      type: "string"
+      required: true
+      nullable: false
+    - name: "CNPJ_FUNDO_CLASSE"
+      type: "string"
+      required: true
+      nullable: false
+    - name: "ID_SUBCLASSE"
+      type: "string"
+      required: true
+      nullable: true
+    - name: "DT_COMPTC"
+      type: "date"
+      format: "YYYY-MM-DD"
+      required: true
+      nullable: false
+    - name: "VL_TOTAL"
+      type: "decimal"
+      required: true
+      nullable: false
+    - name: "VL_QUOTA"
+      type: "decimal"
+      required: true
+      nullable: false
+    - name: "VL_PATRIM_LIQ"
+      type: "decimal"
+      required: true
+      nullable: false
+    - name: "CAPTC_DIA"
+      type: "decimal"
+      required: true
+      nullable: false
+    - name: "RESG_DIA"
+      type: "decimal"
+      required: true
+      nullable: false
+    - name: "NR_COTST"
+      type: "integer"
+      required: true
+      nullable: false
+
+freshness_rules:
+  temporal_field: "DT_COMPTC"
+  max_age_days: 1
+  evaluation_basis: "reference_date"
+  reference_date: "2025-08-01"
+  reject_future_dates: true
+
+completeness_rules:
+  min_records_threshold: 20000
+  allow_empty_file: false
