@@ -1,0 +1,38 @@
+REGISTRO TEXTUAL DAS CONSULTAS AO POSTGRESQL
+
+Execução: bateria experimental local
+Banco: readiness_tcc (PostgreSQL local)
+Lote: batch_20261013_070936_216632_9c1f
+Conjunto de dados: 202507_20261013_070842_616498_99181f
+Data/hora exibida pelo banco: 2026-10-13, fuso -03
+Origem deste registro: transcrição textual das saídas de consultas executadas via psql durante a bateria experimental; não é um dump do banco nem substitui a matriz e o manifesto já salvos.
+
+1. RESULTADO DA CONSULTA DE AUDITORIA (sql/audit_evidence.sql)
+
+cenario_id | file_name            | current_state | S     | T     | C     | colunas | registros | justification_message
+C1         | inf_diario_fi_C1.csv | READY         | true  | true  | true  | 10      | 25144     | Todas as dimensões contratuais atendidas.
+C2         | inf_diario_fi_C2.csv | BLOCKED       | false | true  | true  | 9       | 25144     | Reprovação em dimensão obrigatória: S=0, T=1, C=1.
+C3         | inf_diario_fi_C3.csv | BLOCKED       | true  | false | true  | 10      | 25144     | Reprovação em dimensão obrigatória: S=1, T=0, C=1.
+C4         | inf_diario_fi_C4.csv | BLOCKED       | true  | true  | false | 10      | 500       | Reprovação em dimensão obrigatória: S=1, T=1, C=0.
+
+2. HISTÓRICO DE ESTADOS (tb_historico_estados, unido a tb_ativos_ingestao)
+
+cenario | estado anterior | novo estado | timestamp (-03)         | justificativa
+C1      | NULL            | INGESTED    | 07:09:36.271263         | Ativo admitido fisicamente na Landing Zone.
+C1      | INGESTED        | VALIDATING  | 07:09:36.316160         | Início da verificação contra o contrato YAML.
+C1      | VALIDATING      | READY       | 07:09:36.478581         | Todas as dimensões contratuais atendidas.
+C2      | NULL            | INGESTED    | 07:09:36.516196         | Ativo admitido fisicamente na Landing Zone.
+C2      | INGESTED        | VALIDATING  | 07:09:36.545538         | Início da verificação contra o contrato YAML.
+C2      | VALIDATING      | BLOCKED     | 07:09:36.616420         | Reprovação em dimensão obrigatória: S=0, T=1, C=1.
+C3      | NULL            | INGESTED    | 07:09:36.647119         | Ativo admitido fisicamente na Landing Zone.
+C3      | INGESTED        | VALIDATING  | 07:09:36.796478         | Início da verificação contra o contrato YAML.
+C3      | VALIDATING      | BLOCKED     | 07:09:37.083857         | Reprovação em dimensão obrigatória: S=1, T=0, C=1.
+C4      | NULL            | INGESTED    | 07:09:37.130920         | Ativo admitido fisicamente na Landing Zone.
+C4      | INGESTED        | VALIDATING  | 07:09:37.162089         | Início da verificação contra o contrato YAML.
+C4      | VALIDATING      | BLOCKED     | 07:09:37.211128         | Reprovação em dimensão obrigatória: S=1, T=1, C=0.
+
+3. CONFERÊNCIA
+
+Foram retornadas 4 linhas na auditoria final e 12 eventos no histórico, três por cenário. C1 terminou em READY; C2, C3 e C4 terminaram em BLOCKED. Os valores e estados coincidem com matriz_batch_20261013_070936_216632_9c1f.csv e manifest_batch_20261013_070936_216632_9c1f.json.
+
+Os estados e rótulos de decisão registrados representam o resultado lógico do protótipo. Não houve execução de uma tarefa consumidora downstream real.

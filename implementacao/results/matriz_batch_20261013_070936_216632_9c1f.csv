@@ -1,0 +1,5 @@
+batch_id,execution_id,cenario,condicao,S,T,C,READY,estado_obtido,acao_downstream
+batch_20261013_070936_216632_9c1f,exec_C1_a436d5,C1,Conforme Pleno,1,1,1,1,READY,DOWNSTREAM_AUTHORIZED
+batch_20261013_070936_216632_9c1f,exec_C2_b1eaae,C2,Violação Estrutural,0,1,1,0,BLOCKED,DOWNSTREAM_BLOCKED
+batch_20261013_070936_216632_9c1f,exec_C3_ca91ff,C3,Violação Temporal,1,0,1,0,BLOCKED,DOWNSTREAM_BLOCKED
+batch_20261013_070936_216632_9c1f,exec_C4_64b9d3,C4,Violação de Completude,1,1,0,0,BLOCKED,DOWNSTREAM_BLOCKED

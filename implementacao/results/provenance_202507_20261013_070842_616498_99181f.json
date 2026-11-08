@@ -1,0 +1,59 @@
+{
+  "dataset_set_id": "202507_20261013_070842_616498_99181f",
+  "raw_file_name": "inf_diario_fi_202507.csv",
+  "source_url": "https://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario_fi_202507.zip",
+  "source_index_last_modified": "2026-06-27 06:19",
+  "source_index_timezone": null,
+  "local_file_last_write_time": "2026-06-27T06:19:41.930401-03:00",
+  "acquisition_timestamp": null,
+  "acquisition_timestamp_note": "N\u00e3o h\u00e1 evid\u00eancia dispon\u00edvel da data de obten\u00e7\u00e3o da c\u00f3pia local.",
+  "sha256": "dae4d7c2a7a7cd7d39a1a76c7bc27942cb999f34afd00066683823c4cf0e79e0",
+  "processing_timestamp": "2026-10-13T07:08:42.831183-03:00",
+  "total_raw_rows": 579610,
+  "total_raw_columns": 10,
+  "raw_columns": [
+    "TP_FUNDO_CLASSE",
+    "CNPJ_FUNDO_CLASSE",
+    "ID_SUBCLASSE",
+    "DT_COMPTC",
+    "VL_TOTAL",
+    "VL_QUOTA",
+    "VL_PATRIM_LIQ",
+    "CAPTC_DIA",
+    "RESG_DIA",
+    "NR_COTST"
+  ],
+  "reference_competence": "2025-07-31",
+  "base_rows_count": 25144,
+  "base_file_name": "base_2025-07-31.csv",
+  "base_sha256": "e6048a02c98496ad6ae4f7a8b25ada005dde5803e8751e3797aa79ea3b14a6ef",
+  "reference_date": "2025-08-01",
+  "contract_file": "contracts\\readiness.yaml",
+  "contract_sha256": "3340beeacee107907aaa3fa86e6d03313bcf2fb268cf5021b1b2f58e43930447",
+  "scenario_artifacts": {
+    "C1": {
+      "file_name": "C1_conforme.csv",
+      "rows": 25144,
+      "sha256": "e6048a02c98496ad6ae4f7a8b25ada005dde5803e8751e3797aa79ea3b14a6ef",
+      "transformation": "Sem altera\u00e7\u00e3o da base de 2025-07-31."
+    },
+    "C2": {
+      "file_name": "C2_estrutura.csv",
+      "rows": 25144,
+      "sha256": "c86b505458fd1037c4a96bea3dac2c486f09f173dcf1464396e0970b9639a62c",
+      "transformation": "Remo\u00e7\u00e3o da coluna VL_PATRIM_LIQ."
+    },
+    "C3": {
+      "file_name": "C3_atualidade.csv",
+      "rows": 25144,
+      "sha256": "518fcfebbffaeb94a621301d6643359d230d0bd774f88eb1487bec013cc71b57",
+      "transformation": "Substitui\u00e7\u00e3o de DT_COMPTC por 2025-06-02."
+    },
+    "C4": {
+      "file_name": "C4_completude.csv",
+      "rows": 500,
+      "sha256": "a238f28866d9a62c9d1d81dd697f2d0af4e138012b7fd6a043396098800596a1",
+      "transformation": "Sele\u00e7\u00e3o das primeiras 500 linhas, preservando cabe\u00e7alho, esquema e compet\u00eancia."
+    }
+  }
+}

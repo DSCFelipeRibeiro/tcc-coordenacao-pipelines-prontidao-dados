@@ -1,0 +1,75 @@
+{
+  "batch_id": "batch_20261013_070936_216632_9c1f",
+  "dataset_set_id": "202507_20261013_070842_616498_99181f",
+  "processing_timestamp": "2026-10-13T07:09:37.217672-03:00",
+  "contract_file": "contracts\\readiness.yaml",
+  "contract_sha256": "3340beeacee107907aaa3fa86e6d03313bcf2fb268cf5021b1b2f58e43930447",
+  "scenario_files": {
+    "C1": {
+      "file_name": "C1_conforme.csv",
+      "sha256": "e6048a02c98496ad6ae4f7a8b25ada005dde5803e8751e3797aa79ea3b14a6ef"
+    },
+    "C2": {
+      "file_name": "C2_estrutura.csv",
+      "sha256": "c86b505458fd1037c4a96bea3dac2c486f09f173dcf1464396e0970b9639a62c"
+    },
+    "C3": {
+      "file_name": "C3_atualidade.csv",
+      "sha256": "518fcfebbffaeb94a621301d6643359d230d0bd774f88eb1487bec013cc71b57"
+    },
+    "C4": {
+      "file_name": "C4_completude.csv",
+      "sha256": "a238f28866d9a62c9d1d81dd697f2d0af4e138012b7fd6a043396098800596a1"
+    }
+  },
+  "results": [
+    {
+      "batch_id": "batch_20261013_070936_216632_9c1f",
+      "execution_id": "exec_C1_a436d5",
+      "cenario": "C1",
+      "condicao": "Conforme Pleno",
+      "S": 1,
+      "T": 1,
+      "C": 1,
+      "READY": 1,
+      "estado_obtido": "READY",
+      "acao_downstream": "DOWNSTREAM_AUTHORIZED"
+    },
+    {
+      "batch_id": "batch_20261013_070936_216632_9c1f",
+      "execution_id": "exec_C2_b1eaae",
+      "cenario": "C2",
+      "condicao": "Violação Estrutural",
+      "S": 0,
+      "T": 1,
+      "C": 1,
+      "READY": 0,
+      "estado_obtido": "BLOCKED",
+      "acao_downstream": "DOWNSTREAM_BLOCKED"
+    },
+    {
+      "batch_id": "batch_20261013_070936_216632_9c1f",
+      "execution_id": "exec_C3_ca91ff",
+      "cenario": "C3",
+      "condicao": "Violação Temporal",
+      "S": 1,
+      "T": 0,
+      "C": 1,
+      "READY": 0,
+      "estado_obtido": "BLOCKED",
+      "acao_downstream": "DOWNSTREAM_BLOCKED"
+    },
+    {
+      "batch_id": "batch_20261013_070936_216632_9c1f",
+      "execution_id": "exec_C4_64b9d3",
+      "cenario": "C4",
+      "condicao": "Violação de Completude",
+      "S": 1,
+      "T": 1,
+      "C": 0,
+      "READY": 0,
+      "estado_obtido": "BLOCKED",
+      "acao_downstream": "DOWNSTREAM_BLOCKED"
+    }
+  ]
+}
