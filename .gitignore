@@ -1,0 +1,14 @@
+# Credenciais locais: mantenha somente o exemplo versionável
+**/.env
+**/.env.*
+!**/.env.example
+
+# Ambiente e cache do Python
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+
+# PDFs derivados das figuras: mantidos localmente, sem versionamento
+/figuras_figma/*.pdf
